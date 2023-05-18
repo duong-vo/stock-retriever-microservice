@@ -16,7 +16,7 @@ def retrieve_stock_data():
                 date = index
                 price = row['Close'][symbol]
                 print(f"Symbol: {symbol} - Date: {date} - Price: {price}")
-                # redis_client.set(symbol, str(price))
+                redis_client.set(symbol, str(price))
             time.sleep(10)  # Sleep for 1 minute
 
         # Sleep for a specific duration before retrieving the next data

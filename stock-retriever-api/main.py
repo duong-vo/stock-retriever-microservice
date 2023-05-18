@@ -18,5 +18,11 @@ async def root(symbol: str):
     price = redis_client.get(symbol)
     return price
 
+@app.post("/subscribe/")
+async def subscribe(symbol: str, price: int):
+    print("subscribe to", symbol, price)
+    return price
+
+
 if __name__ == '__main__':
     uvicorn.run(app, port=8000, host="0.0.0.0")

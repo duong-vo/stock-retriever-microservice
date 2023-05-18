@@ -1,5 +1,10 @@
 version: "3.10"
 services:
+  script:
+      build:
+        context: ./stock-ticker
+        dockerfile: Dockerfile
+      network_mode: "host"
   fastapi:
     build:
       context: ./stock-retriever-api
@@ -7,9 +12,4 @@ services:
     ports:
       - 8000:8000
     network_mode: "host"
-  script:
-    build:
-      context: ./stock-ticker
-      dockerfile: Dockerfile
-    network_mode: "host"
-      
+  
